@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        {% if 'username' in session %}
+                            <li class="nav-item">
+                                <span class="nav-link">{{ session['username'] }}</span>
+                            </li>
+                            <li class="nav-item">
+                                <a style="text-decoration:none" href="/logout">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a style="text-decoration:none" href="/login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="text-decoration:none" href="/signup">Sign Up</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="jumbotron jumbotron-fluid bg-info text-white">
+        <div class="container text-center">
+            <h1 class="display-4">Welcome to User Authentication System </h1>
+            <p class="lead"><br>"Unlocking Secure Access: Your Key to Seamless Authentication."<br><br>By Priyansh Chhabra</p>
+            {% if 'username' in session %}
+                <p class="lead">Logged in as {{ session['username'] }}</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <h2>What We Offer :</h2>
+        <p>
+
+            <br>1. Security : Ensures that only authorized users can access protected resources, preventing unauthorized access and protecting sensitive information.<br>
+            
+            2. User Management : Provides functionalities for user registration, login, logout, and password management, allowing users to manage their accounts securely.<br>
+            
+            3. Access Control : Enables administrators to define roles and permissions, controlling what actions different users can perform within the system.<br>
+            
+            4. Scalability : Supports a growing number of users and resources, ensuring that the system can handle increased load and user demand without sacrificing performance.<br>
+            
+            5. Integration :  Easily integrates with other systems and applications, allowing for seamless authentication across multiple platforms and services.<br>
+            
+            6. Auditing and Logging : Tracks user activities and login attempts, providing audit trails and logs for compliance, troubleshooting, and security analysis purposes.<br>
+            
+            7. Customization : Offers flexibility to customize authentication methods, user interfaces, and security policies to meet specific business requirements.<br>
+            
+            8. User Experience : Focuses on providing a smooth and intuitive user experience, with features like password recovery and multi-factor authentication.</p>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light text-center">
+        <div class="container">
+            <span class="text-muted">SoftApper Tech Solutions  &copy; 2024</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
